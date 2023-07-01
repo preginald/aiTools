@@ -18,7 +18,7 @@ load_dotenv()
 openai.api_key = os.environ['OPENAI_API_KEY']
 
 initial = """
-Tell me a choose your own adventure story. Give me multiple choices. Your response must have the following JSON structure: 
+Tell me a choose your own adventure story. The story is set in a magical mushroom universe. The genre is comedy and adventure. Make the story captivating. Give me multiple choices. Your response must have the following JSON structure: 
 `{
     "story": "Story content...",
     "options": [
