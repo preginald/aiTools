@@ -9,7 +9,7 @@ import logging
 logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 app = Flask(__name__)
-CORS(app)  # This will enable CORS for all routes
+CORS(app, origins=['http://192.168.1.159'])  # This will enable CORS for all routes
 model="gpt-3.5-turbo"
 # model="gpt-4"
 
