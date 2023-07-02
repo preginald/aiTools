@@ -31,22 +31,15 @@ def converse():
     genre = data.get('genre', 'fantasy')
     name = data.get('name', 'User')
 
-    # initial = f"""
-    # Tell me a choose your own adventure story. The story is set in a {genre} universe. The main character's name is {name}. The genre is comedy and adventure. Make the story captivating. Give me multiple choices. Your response must have the following JSON structure: 
-    # `{{
-    #     "story": "Story content...",
-    #     "options": [
-    #         {{
-    #             "A": "text for option A"
-    #         }},
-    #         {{
-    #             "n": "text for option n"
-    #         }}
-    #     ],
-    # }}` 
-    # Start the story and ask the first question.
-    # """
-
+    storyStructure = """
+    {
+        "story": "Story content...",
+        "options": [
+            {"A": "text for option A"},
+            {"n": "text for option n"}
+        ]
+    } 
+    """
 
     initial = f"""
     Act as a choose your own adventure story teller. The story must contain these important attributes:
@@ -61,17 +54,7 @@ def converse():
     Character Development: Even though the story's focus is on its branching paths, don't forget about character development. The main character(s) should be dynamic and relatable to ensure reader investment in their journey.
     The protagonist's name is {name}. 
     Your response must have the following JSON structure: 
-    `{{
-        "story": "Story content...",
-        "options": [
-            {{
-                "A": "text for option A"
-            }},
-            {{
-                "n": "text for option n"
-            }}
-        ],
-    }}` 
+    {storyStructure}
     Start the story and ask the first question.
     """
 
