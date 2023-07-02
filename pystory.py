@@ -41,6 +41,14 @@ def converse():
     } 
     """
 
+    # If it's not the first message, insert a system message as a reminder
+    if len(messages) > 1 and messages[-1]['role'] == 'user':
+        reminder = f"""
+        Continue the choose your own adventure story. Remember, your response must have the following JSON structure: 
+        {storyStructure}
+        """
+        messages.insert(-1, {"role": "system", "content": reminder})
+
     initial = f"""
     Act as a choose your own adventure story teller. The story must contain these important attributes:
     Engaging Narrative: The story should be intriguing and engaging to keep the reader interested.
@@ -77,6 +85,6 @@ def converse():
         return jsonify({
             'error': str(e)
         }), 500
-
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5010)
+        
+    if __name__ == "__main__":
+        app.run(host='0.0.0.0', port=5010)
