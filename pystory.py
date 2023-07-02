@@ -47,10 +47,11 @@ def converse():
     # Start the story and ask the first question.
     # """
 
-    initial = """
+
+    initial = f"""
     Act as a choose your own adventure story teller. The story must contain these important attributes:
     Engaging Narrative: The story should be intriguing and engaging to keep the reader interested.
-    The story is set in a {} universe. 
+    The story is set in a {genre} universe. 
     Choice Points: These are the decision-making moments where the reader has to select one of multiple paths. The narrative should naturally lead to these points and offer compelling options.
     Branching Paths: The narrative branches off in different directions based on the choices made by the reader. Each branch should offer a distinct narrative pathway, ensuring readers feel their choices have significant consequences.
     Multiple Endings: The story must offer multiple endings. Depending on the choices made, the reader should be able to reach different conclusions. Some endings might be "better" than others, but all should be satisfying and coherent.
@@ -58,7 +59,7 @@ def converse():
     Balance: While choices should have consequences, you need to balance this against the reader's ability to complete the story. If all paths but one lead to a premature end, readers may get frustrated. Similarly, if choices don't really matter and all paths lead to the same end, readers may feel cheated.
     Clarity: Your reader should be able to easily understand the choices they're making. Avoid vague or misleading choices, as these can lead to frustration. It should also be clear to the reader when they've reached an ending and how to start a new path.
     Character Development: Even though the story's focus is on its branching paths, don't forget about character development. The main character(s) should be dynamic and relatable to ensure reader investment in their journey.
-    The protagonist's name is {}. 
+    The protagonist's name is {name}. 
     Your response must have the following JSON structure: 
     `{{
         "story": "Story content...",
@@ -72,7 +73,7 @@ def converse():
         ],
     }}` 
     Start the story and ask the first question.
-    """.format(genre, name)
+    """
 
     # Ensure that the conversation starts with the system message
     if len(messages) == 0 or messages[0]['role'] != 'system':
